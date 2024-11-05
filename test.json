@@ -1,0 +1,115 @@
+{
+    "file": "uploads/products/E471OpqqCnQwjUTI2lD6.pdf",
+    "items": [
+        {
+            "title": {
+                "en": "neque",
+                "ru": "neque",
+                "uz": "neque"
+            }
+        },
+        {
+            "title": {
+                "en": "pariatur",
+                "ru": "pariatur",
+                "uz": "pariatur"
+            }
+        }
+    ],
+    "title": {
+        "en": "Miss",
+        "ru": "Miss",
+        "uz": "Miss"
+    },
+    "routes": {
+        "items": [
+            {
+                "title": {
+                    "en": "est",
+                    "ru": "est",
+                    "uz": "est"
+                }
+            },
+            {
+                "title": {
+                    "en": "quia",
+                    "ru": "quia",
+                    "uz": "quia"
+                }
+            }
+        ],
+        "active": true
+    },
+    "slider": {
+        "items": [
+            {
+                "image": "uploads/products/QNuLiK2qUNP4UA72MfES.jpg",
+                "description": {
+                    "en": "non labore labore",
+                    "ru": "non labore labore",
+                    "uz": "non labore labore"
+                }
+            },
+            {
+                "image": "uploads/products/xFSuSzlt4IyT95mrzsMO.jpg",
+                "description": {
+                    "en": "nesciunt voluptatem delectus",
+                    "ru": "nesciunt voluptatem delectus",
+                    "uz": "nesciunt voluptatem delectus"
+                }
+            },
+            {
+                "image": "uploads/products/kXpAlYUTTQYEm0Y8Gbi6.jpg",
+                "description": {
+                    "en": "impedit ipsum iure",
+                    "ru": "impedit ipsum iure",
+                    "uz": "impedit ipsum iure"
+                }
+            }
+        ],
+        "title": {
+            "en": "ipsam ut porro",
+            "ru": "ipsam ut porro",
+            "uz": "ipsam ut porro"
+        },
+        "active": false
+    },
+    "advantages": {
+        "items": [
+            {
+                "title": {
+                    "en": "eos",
+                    "ru": "eos",
+                    "uz": "eos"
+                }
+            },
+            {
+                "title": {
+                    "en": "nesciunt",
+                    "ru": "nesciunt",
+                    "uz": "nesciunt"
+                }
+            },
+            {
+                "title": {
+                    "en": "ut",
+                    "ru": "ut",
+                    "uz": "ut"
+                }
+            },
+            {
+                "title": {
+                    "en": "qui",
+                    "ru": "qui",
+                    "uz": "qui"
+                }
+            }
+        ],
+        "active": true
+    },
+    "description": {
+        "en": "labore voluptas reprehenderit",
+        "ru": "labore voluptas reprehenderit",
+        "uz": "labore voluptas reprehenderit"
+    }
+}
