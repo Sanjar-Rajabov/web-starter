@@ -22,6 +22,14 @@ function formSubmitEvent(event) {
 
     let data = new FormData(form)
 
+    let inputs = document.querySelectorAll('input[type=file]')
+
+    for (let input of inputs) {
+        if (!input.value) {
+            data.set(input.name, '')
+        }
+    }
+
     fetch(form.action, {
         method: 'POST',
         body: data,

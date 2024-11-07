@@ -63,14 +63,14 @@ class ContentCast implements CastsAttributes
 
     private function recursive(array &$array, array $newValue, array $oldValue, bool $newObject = false): void
     {
-        if (array_is_list($oldValue)) {
+        if (array_is_list($oldValue) && array_key_first($newValue) === 0) {
             $this->recursiveArray($array, $newValue, $oldValue);
         } else {
             foreach ($oldValue as $k => $value) {
                 if (is_array($value)) {
                     $array[$k] = [];
                     if (array_key_exists($k, $newValue)) {
-                        if (array_is_list($value)) {
+                        if (array_is_list($value) && array_key_first($newValue[$k]) === 0) {
                             $this->recursiveArray($array[$k], $newValue[$k], $value);
                         } else {
                             $this->recursive($array[$k], $newValue[$k], $value);

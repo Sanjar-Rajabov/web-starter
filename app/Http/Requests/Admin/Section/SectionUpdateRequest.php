@@ -52,7 +52,7 @@ class SectionUpdateRequest extends FormRequest
     private function recursive(array &$array, array $data, array $uploadInfo, bool $isList = false): void
     {
         $isList = $isList ?: (
-            array_key_exists('ru', $data) || array_key_exists('uz', $data) || array_key_exists('en', $data)
+        (array_key_exists('ru', $data) || array_key_exists('uz', $data) || array_key_exists('en', $data) || $this->checkIfList($data))
         );
         foreach ($data as $key => $value) {
             if (array_key_exists($key, $uploadInfo) || $isList) {
@@ -72,5 +72,16 @@ class SectionUpdateRequest extends FormRequest
     {
         $path = 'sections/' . $this->route('page');
         return FileHelper::upload($file, $path, $sizes);
+    }
+
+    private function checkIfList(array $data): bool
+    {
+        $list = true;
+        foreach ($data as $key => $value) {
+            if (!is_numeric($key)) {
+                $list = false;
+            }
+        }
+        return $list;
     }
 }
