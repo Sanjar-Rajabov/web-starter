@@ -26,7 +26,7 @@ function formSubmitEvent(event) {
 
     for (let input of inputs) {
         if (!input.value) {
-            data.set(input.name, '')
+            data.set(input.name, input.hasAttribute('deleted') ? 'deleted' : '')
         }
     }
 
@@ -178,4 +178,14 @@ function alertMessage(type, content) {
         </div>`
     document.querySelector('.content-body').prepend(element)
     window.scrollTo({top: 0, behavior: "smooth"});
+}
+
+function deleteImage(id, label) {
+    id = id.replace('[', '\\[').replace(']', '\\]')
+    let input = document.querySelector('#' + id)
+
+    input.setAttribute('deleted', true)
+    input.value = null
+    document.querySelector('#' + id + '-label').textContent = label
+    document.querySelector('#show-' + id).src = ''
 }
