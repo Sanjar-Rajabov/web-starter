@@ -61,6 +61,8 @@ class SectionUpdateRequest extends FormRequest
                 } elseif (is_array($value)) {
                     $array[$key] = [];
                     $this->recursive($array[$key], $value, $isList ? $uploadInfo : $uploadInfo[$key], array_is_list($value));
+                } elseif (!empty($value)) {
+                    $array[$key] = null;
                 }
             } else {
                 $array[$key] = $value;

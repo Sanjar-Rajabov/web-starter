@@ -11,4 +11,5 @@ enum FieldTypesEnum
     case LocaleTextarea;
     case LocaleTextEditor;
     case ImageInput;
+    case LocaleImage;
 }

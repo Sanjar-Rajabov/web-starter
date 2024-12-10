@@ -18,4 +18,14 @@ enum ImageInputTypesEnum
             self::Any => '',
         };
     }
+
+    public function getExtensions(): array
+    {
+        return match ($this) {
+            self::Image => ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg'],
+            self::MediaFile => ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'mp4'],
+            self::File => ['doc', 'docx', 'pdf'],
+            self::Any => [],
+        };
+    }
 }

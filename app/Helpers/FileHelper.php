@@ -48,10 +48,17 @@ class FileHelper
         $fullPath = $path . $fileName;
         Storage::directoryExists($path) || File::makeDirectory($path, 0777, true);
 
-        if (in_array($file->getClientOriginalExtension(), ImageExtensionsEnum::values()) && !empty($sizes)) {
-            Image::read($file)->scaleDown(...$sizes)->save($fullPath, []);
-        } else {
+        if (!in_array($file->getClientOriginalExtension(), ImageExtensionsEnum::resizable())) {
             $file->storeAs($path, $fileName);
+        } else {
+            $image = Image::read($file);
+            if (in_array($file->getClientOriginalExtension(), ImageExtensionsEnum::toWebpExtenstions())) {
+                $image->toWebp(100);
+            }
+
+            $fullPath = str_replace($file->getClientOriginalExtension(), 'webp', $fullPath);
+
+            $image->scaleDown(...$sizes)->save($fullPath, []);
         }
 
         return $fullPath;

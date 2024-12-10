@@ -19,6 +19,7 @@ class LocaleImage extends Component
         public ImageInputTypesEnum $type = ImageInputTypesEnum::Image,
         public array|null          $value = [],
         public bool                $required = false,
+        public bool $deletable = false,
         public ImageSizeEnum       $size = ImageSizeEnum::Small
     )
     {

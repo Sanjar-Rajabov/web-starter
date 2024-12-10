@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Enums\HttpCode;
 use App\Helpers\ResponseHelper;
 use App\Http\Controllers\Core\Controller;
 use App\Http\Requests\Admin\Section\SectionIndexRequest;
@@ -33,6 +32,6 @@ class SectionController extends Controller
             'content' => $content
         ]);
 
-        return ResponseHelper::response('Изменения успешно сохранены', HttpCode::CREATED);
+        return ResponseHelper::response('Изменения успешно сохранены');
     }
 }

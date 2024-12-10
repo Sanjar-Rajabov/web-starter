@@ -3,6 +3,7 @@
 namespace App\View\Components;
 
 use App\DTO\FormListItem;
+use App\Helpers\ArrayHelper;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
@@ -17,6 +18,7 @@ class FormList extends Component
      * @param bool $dynamic
      * @param int|null $min
      * @param int|null $max
+     * @param bool $draggable
      */
     public function __construct(
         public string   $name,
@@ -25,11 +27,12 @@ class FormList extends Component
         public string   $id = '',
         public bool     $dynamic = true,
         public int|null $min = null,
-        public int|null $max = null
+        public int|null $max = null,
+        public bool     $draggable = false
     )
     {
         if (empty($this->id)) {
-            $this->id = $this->name;
+            $this->id = ArrayHelper::arrayStringToDot($name, '-');
         }
     }
 
@@ -38,8 +41,6 @@ class FormList extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.form-list', [
-            'test' => 'test'
-        ]);
+        return view('components.form-list');
     }
 }

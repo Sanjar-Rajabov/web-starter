@@ -15,7 +15,8 @@ class FormListItem
         public string              $id = '',
         public bool                $required = false,
         public ImageSizeEnum       $size = ImageSizeEnum::Small,
-        public ImageInputTypesEnum $imageType = ImageInputTypesEnum::Image
+        public ImageInputTypesEnum $imageType = ImageInputTypesEnum::Image,
+        public bool                $imageIsDeletable = false
     )
     {
         if (empty($this->id)) {
@@ -30,8 +31,13 @@ class FormListItem
 
     public function toArray(): array
     {
+        $type = $this->type->name;
+        if (in_array($this->type, [FieldTypesEnum::ImageInput, FieldTypesEnum::LocaleImage]) && $this->imageIsDeletable) {
+            $type .= 'Deletable';
+        }
+
         return [
-            'type' => $this->type->name,
+            'type' => $type,
             'name' => $this->name,
             'label' => $this->label,
             'id' => $this->id

@@ -7,7 +7,7 @@ class ResourceHelper
     public static function setUrl(array &$result): array
     {
         foreach ($result as $key => $value) {
-            if (in_array($key, ['media_file', 'image', 'banner', 'icon', 'preview_image', 'file'])) {
+            if (in_array($key, ['media_file', 'image', 'banner', 'icon', 'preview_image', 'file', 'public-offer'])) {
                 if (is_array($value)) {
                     foreach ($value as $k => $item) {
                         $result[$key][$k] = !empty($item) ? asset($item) : null;

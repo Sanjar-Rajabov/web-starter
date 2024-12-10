@@ -9,9 +9,20 @@ enum ImageExtensionsEnum: string
     case PNG = 'png';
     case GIF = 'gif';
     case SVG = 'svg';
+    case WEBP = 'webp';
 
     public static function values()
     {
         return array_map(fn($value) => $value->value, array_values(ImageExtensionsEnum::cases()));
+    }
+
+    public static function resizable(): array
+    {
+        return ['jpg', 'jpeg', 'png', 'webp', 'gif'];
+    }
+
+    public static function toWebpExtenstions(): array
+    {
+        return ['jpg', 'jpeg', 'png', 'svg', 'gif'];
     }
 }
