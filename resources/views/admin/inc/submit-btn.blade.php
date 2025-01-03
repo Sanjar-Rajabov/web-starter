@@ -3,7 +3,7 @@
         <span class="sr-only">Loading...</span>
     </div>
     <button type="submit" class="btn btn-primary btn-icon">
-        <i class="feather icon-save"></i>
-        Сохранить
+        <i class="feather icon-{{ $icon ?? 'save' }}"></i>
+        {{ $name ?? 'Сохранить' }}
     </button>
 </div>

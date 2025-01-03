@@ -2,27 +2,27 @@
 
 namespace App\View\Components;
 
+use App\Helpers\ArrayHelper;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class LocaleTextEditor extends Component
+class Select extends Component
 {
-
     /**
      * Create a new component instance.
      */
     public function __construct(
-        public string     $name,
-        public string     $label,
-        public array|null $value = [],
-        public string     $id = '',
-        public bool       $required = false,
-        public array $toolbar = []
+        public string      $name,
+        public string      $label,
+        public array       $options,
+        public mixed       $value = null,
+        public bool        $required = false,
+        public string|null $id = null
     )
     {
         if (empty($this->id)) {
-            $this->id = $this->name;
+            $this->id = ArrayHelper::arrayStringToDot($this->name, '-');
         }
     }
 
@@ -31,6 +31,6 @@ class LocaleTextEditor extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.locale-text-editor');
+        return view('components.select');
     }
 }

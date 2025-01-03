@@ -52,13 +52,18 @@ class FileHelper
             $file->storeAs($path, $fileName);
         } else {
             $image = Image::read($file);
+
+            if (!empty($sizes)) {
+                $image->scaleDown(...$sizes);
+            }
+
             if (in_array($file->getClientOriginalExtension(), ImageExtensionsEnum::toWebpExtenstions())) {
                 $image->toWebp(100);
             }
 
             $fullPath = str_replace($file->getClientOriginalExtension(), 'webp', $fullPath);
 
-            $image->scaleDown(...$sizes)->save($fullPath, []);
+            $image->save($fullPath, []);
         }
 
         return $fullPath;
@@ -84,6 +89,9 @@ class FileHelper
     {
         if ($path === null) {
             return;
+        }
+        if (str_contains($path, env('APP_URL'))) {
+            $path = str_replace(env('APP_URL'), '', $path);
         }
         Storage::exists($path) && Storage::delete($path);
     }
@@ -127,7 +135,7 @@ class FileHelper
 
 function convert($size)
 {
-    $unit=array('b','kb','mb','gb','tb','pb');
-    return @round($size/pow(1024,($i=floor(log($size,1024)))),2).' '.$unit[$i];
+    $unit = array('b', 'kb', 'mb', 'gb', 'tb', 'pb');
+    return @round($size / pow(1024, ($i = floor(log($size, 1024)))), 2) . ' ' . $unit[$i];
 }
 

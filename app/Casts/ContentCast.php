@@ -47,7 +47,7 @@ class ContentCast implements CastsAttributes
         $result = [];
 
         if ($this->type === 'dynamic' && !$model->exists) {
-            $content = $model->getContentExample();
+            $content = $model->getExample($key);
         } else {
             $content = json_decode($model->getRawOriginal($modelKey), true);
         }
